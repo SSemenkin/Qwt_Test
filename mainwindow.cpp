@@ -1,14 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
       m_plot(new QwtPlot(this)),
-      m_symbol(new QwtSymbol(QwtSymbol::Style::Ellipse, Qt::blue, Qt::NoPen, QSize(8,8))),
+      m_symbol(new QwtSymbol(QwtSymbol::Style::Ellipse, Qt::blue, Qt::NoPen, QSize(8, 8))),
       m_pointGenerator(new PointGenerator)
 {
     ui->setupUi(this);
@@ -56,7 +55,6 @@ void MainWindow::pause()
 
 void MainWindow::appendNewPoint(float x, float y)
 {
-    qDebug() << "Point " << x << y;
     m_points << QPointF(x, y);
     m_curve.setSamples(m_points);
     m_plot->replot();

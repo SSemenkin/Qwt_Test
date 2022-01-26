@@ -1,5 +1,4 @@
 #include "pointgenerator.h"
-#include <QDebug>
 
 PointGenerator::PointGenerator(QObject *parent) : QObject(parent)
 {
